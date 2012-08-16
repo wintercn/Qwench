@@ -38,6 +38,8 @@ include_once ROOT.DS.'libraries'.DS.'timeago.php';
 include_once ROOT.DS.'libraries'.DS.'score.php';
 include_once ROOT.DS.'libraries'.DS.'pagination.class.php';
 include_once ROOT.DS.'controllers'.DS.'helpers.php';
+include_once ROOT.DS.'i18n'.DS.'zh-cn.php';
+
 /* Debug Mode */
 
 error_reporting(E_ALL);

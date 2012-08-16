@@ -7,7 +7,7 @@ define('DBUSERNAME','root');
 define('DBPASSWORD','yourpassword');
 define('DBNAME','qwench');
 
-Define('ANSWERS_PER_PAGE','10');
+define('ANSWERS_PER_PAGE','10');
 define('QUESTIONS_PER_PAGE','10');
 
 // If you want only logged in users to view the site
