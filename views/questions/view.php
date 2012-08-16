@@ -4,7 +4,7 @@ function cform() {
  
 	description = $("#wmd-input").val();
  
-	if (description.length < 15) {
+	if (description.length < 1) {
 		$("#wmd-input").addClass('textalert');
 		$.fancyalert('Your <?php if ($kb):?>comment<?php else:?>answer<?php endif;?> must be atleast 15 characters in length');
 		$("#wmd-input").focus();
@@ -28,7 +28,7 @@ function cform() {
 <div class="questionsview_details"><span style="color:#999"><?php echo timeAgo(strtotime($created));?></span></div>
 
 <?php if ($userid == $_SESSION['userid']):?>
-<div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
+<div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>"><?php echo TEXT_EDIT;?></a></div>
 <?php endif;?>
  
 
@@ -73,7 +73,7 @@ function cform() {
 
 </div>
 <div id="comment_q<?php echo $id;?>" class="commentsadd">
-<span style="float:left"><a href="javascript:void(0)" onclick="javascript:comment('q<?php echo $id;?>')">Add comment</a></span>
+<span style="float:left"><a href="javascript:void(0)" onclick="javascript:comment('q<?php echo $id;?>')"><?php echo TEXT_ADDCOMMENT;?></a></span>
 
 <span style="float:right" style="display:none" class="viewallcomments"><a href="javascript:void(0)" onclick="javascript:viewallcomments('q<?php echo $id;?>')"></a></span>
 </div>
@@ -99,7 +99,7 @@ function cform() {
 </div>
 
 <div>
-<div style="float:left"><h2><?php echo $answerscount;?><?php if ($kb):?> Comments<?php else:?> Answers<?php endif;?></h2></div>
+<div style="float:left"><h2><?php echo $answerscount;?><?php if ($kb):?><?php echo TEXT_COMMENT;?><?php else:?><?php echo TEXT_ANSWER;?><?php endif;?></h2></div>
 
 <div style="clear:both"></div>
 </div>
@@ -127,7 +127,7 @@ Accepted Answer</span>
 </div>
 <?php elseif($userid == $_SESSION['userid']):?>
 <div class="questionsview_accept">
-<a href="<?php echo basePath();?>/answers/accept?id=<?php echo $answer['id'];?>">Accept this answer</a>
+<a href="<?php echo basePath();?>/answers/accept?id=<?php echo $answer['id'];?>"><?php echo TEXT_ACCEPTTHISANSWER;?></a>
 </div>
 <?php endif;?>
 <?php endif;?>
@@ -162,7 +162,7 @@ Accepted Answer</span>
 </div>
 <div id="comment_a<?php echo $answer['id'];?>" class="commentsadd">
 
-<span style="float:left"><a href="javascript:void(0)" onclick="javascript:comment('a<?php echo $answer['id'];?>')">Add comment</a></span>
+<span style="float:left"><a href="javascript:void(0)" onclick="javascript:comment('a<?php echo $answer['id'];?>')"><?php echo TEXT_ADDCOMMENT;?></a></span>
 <span style="float:right" style="display:none" class="viewallcomments"><a href="javascript:void(0)" onclick="javascript:viewallcomments('a<?php echo $answer['id'];?>')"></a></span>
 
 </div>
@@ -185,13 +185,13 @@ Accepted Answer</span>
 <div style="clear:both"></div>
 </div>
 
-<?php else:?><h3><?php if ($kb):?>No comments on this article as yet.<?php else:?>No answers as yet. Be the first to write an answer.<?php endif;?></h3><?php endif;?>
+<?php else:?><h3><?php if ($kb):?>No comments on this article as yet.<?php else:?><?php echo TEXT_NOANSWER;?><?php endif;?></h3><?php endif;?>
 
 <?php if ($_SESSION['userid'] != ''):?>
 <div class="questionsview_form">
 <form action="<?php echo generateLink("answers","post");?>" method="post"  onsubmit="javascript:return cform();">
 
-<h2 style="padding-top:0px;padding-bottom:16px;"><?php if ($kb):?>Add a comment<?php else:?>Answer Question<?php endif;?></h2>
+<h2 style="padding-top:0px;padding-bottom:16px;"><?php if ($kb):?><?php echo TEXT_ADDCOMMENT;?><?php else:?>Answer Question<?php endif;?></h2>
 
 <div id="wmd-editor" class="wmd-panel">
 <div id="wmd-button-bar"></div>

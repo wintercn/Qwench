@@ -41,17 +41,18 @@ function cform() {
 <div id="wmd-preview" class="markdown"></div>
  
 
-<h3 style="padding-top:20px">Share a Link</h3>
+<h3 style="padding-top:20px"><?php echo TEXT_SHAREALINK;?> </h3>
 <input type="textbox" class="textbox" name="link" id="link" value="<?php echo $link;?>"/><br/>
 
-<h3>Tags</h3>
+<h3><?php echo TEXT_TAGS;?> </h3>
 <select class="textbox" name="tags" id="tags"/>
 <?php foreach ($tags as $tag):?>
 <option value="<?php echo $tag;?>" class="selected"><?php echo $tag;?></option>
 <?php endforeach;?>
 </select>
 <br/>
-<input type="checkbox" id="answercheck" name="answercheck" value="1" tabindex="4" <?php if ($kb) { echo "checked"; }?>> Make this a knowledge-base article
+  <div style="display:none;">
+<input type="checkbox" id="answercheck" name="answercheck" value="1" tabindex="4" <?php if ($kb) { echo "checked"; }?>> Make this a knowledge-base article</div>
 <br/><br/>
 <input type="hidden" name="id" value="<?php echo $questionid;?>">
 <input type="submit" value="Update" class="button">

@@ -17,7 +17,7 @@ function cform() {
 	description = $("#wmd-input").val();
  
 
-	if (title.length < 15) {
+	if (title.length < 1) {
 		$("#title").addClass('textalert');
 		$.fancyalert('Your title must be atleast 15 characters in length');
 		$("#title").focus();
@@ -26,7 +26,7 @@ function cform() {
 		$("#title").removeClass('textalert');
 	}
 
-	if (description.length < 15) {
+	if (description.length < 1) {
 		$("#wmd-input").addClass('textalert');
 		$.fancyalert('Your description must be atleast 15 characters in length');
 		$("#wmd-input").focus();
@@ -41,7 +41,7 @@ function cform() {
 
 <form action="<?php echo generateLink("questions","post");?>" method="post" onsubmit="javascript:return cform();">
 
-<h1>What would you like to ask or contribute?</h1>
+<h1><?php echo TEXT_ASKING;?></h1>
 <input type="textbox" class="textbox" name="title" id="title" tabindex="1"/><br/>
  
 
@@ -52,13 +52,15 @@ function cform() {
 <div id="wmd-preview" class="markdown"></div>
  
 
-<h3 style="padding-top:20px">Share a Link</h3>
+<h3 style="padding-top:20px"><?php echo TEXT_SHAREALINK;?></h3>
 <input type="textbox" class="textbox" name="link" id="link" tabindex="3"/><br/>
 
-<h3>Tags</h3>
+<h3><?php echo TEXT_TAGS;?></h3>
 <select class="textbox" name="tags" id="tags" tabindex="4"/></select>
 <br/>
-<input type="checkbox" id="answercheck" name="answercheck" value="1" onclick="fanswer();" tabindex="4"> Make this a knowledge-base article
+  <div style="display:none;">
+    <input type="checkbox" id="answercheck" name="answercheck" value="1" onclick="fanswer();" tabindex="4"> Make this a knowledge-base article
+  </div>
 <br/><br/>
 <input type="submit" value="Ask Question" class="button" id="askquestion" tabindex="5">
 </form>

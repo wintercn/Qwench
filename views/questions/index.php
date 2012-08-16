@@ -27,11 +27,11 @@
  
 <?php if ($question['kb']):?>
 <div class="questionsview_details">
-<?php echo $question['answers'];?> cmts | <?php echo $question['votes'];?> votes
+<?php echo $question['answers'];?> <?php echo TEXT_COMMENT;?> | <?php echo $question['votes'];?> <?php echo TEXT_VOTE;?>
 </div>
 <?php else:?>
 <div class="questionsview_details q">
-<?php echo $question['answers'];?> ans | <?php echo $question['votes'];?> votes
+<?php echo $question['answers'];?> <?php echo TEXT_ANSWER;?> | <?php echo $question['votes'];?> <?php echo TEXT_VOTE;?>
 </div>
 <?php endif;?>
 
@@ -67,4 +67,4 @@
 </div> 
 <?php endif;?>
 
-<?php else:?><h3>Sorry, we could not find what you were looking for. You may want to have a look at <a href="<?php echo basePath();?>/tags">tags</a>.</h3><?php endif;?>
+<?php else:?><h3><?php echo TEXT_NOTHINGDFIND;?> <a href="<?php echo basePath();?>/tags"><?php echo TEXT_TAGS;?></a>.</h3><?php endif;?>
